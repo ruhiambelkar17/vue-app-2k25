@@ -10,6 +10,10 @@
         <p><b>Below comp is loaded using dynamic comp:</b></p>
         <component :is="cmpNm" />
         <AboutComp  :propTitle1="propData1" :propTitle2="propData2" @emitEvent="getEmitInfo"/>
+        <p><b>Mixins:</b></p>
+        <button @click="incCounter">Counter</button>
+        <p>Count is: {{ count }}</p>
+
     </div>
 </template>
 
@@ -17,10 +21,12 @@
 import AboutComp from './AboutComp.vue';
 import DynamicChildComp from './DynamicChildComp.vue';
 import { defineAsyncComponent } from 'vue';
+import counter from '../mixins/counter';
 export default{
     components:{AboutComp,DynamicChildComp,
         AsyncChildComp:defineAsyncComponent(()=> import('./AsyncChildComp.vue'))
     },
+    mixins:[counter],
     data(){
         return {
             name:"",
@@ -28,7 +34,8 @@ export default{
             propData2:"I m a prop2 from parent",
             getEmitInfoParam:"",
             providePram:"I m provide frpm parent",
-            cmpNm:"DynamicChildComp1"
+            cmpNm:"DynamicChildComp1",
+            count:100
         }
     },
     methods:{
