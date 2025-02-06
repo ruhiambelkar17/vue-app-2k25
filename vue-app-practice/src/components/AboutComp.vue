@@ -4,6 +4,7 @@
         <p><b>Prop from parent is:</b> {{ propTitle1 }} {{ propTitle2 }}</p>
         <p><b>provide from parent is :</b> {{ provideMsg }}</p>
         <button @click="submitEmit">Emit</button>
+       
     </div>
 </template>
 

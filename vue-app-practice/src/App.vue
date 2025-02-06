@@ -1,15 +1,18 @@
 <template>
-  
-  <HomeComp />
+  <div>
+
+  <!-- <HomeComp /> -->
+  <router-view> </router-view>
+  </div>
 </template>
 
 <script>
-import HomeComp from './components/HomeComp.vue'
+//import HomeComp from './components/HomeComp.vue'
 
 export default {
   name: 'App',
   components: {
-    HomeComp
+    //HomeComp
   }
 }
 </script>
