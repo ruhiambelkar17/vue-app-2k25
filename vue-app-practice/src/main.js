@@ -1,4 +1,14 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+import FormComp from './components/FormComp.vue'
 
-createApp(App).mount('#app')
+
+
+const app=createApp(App);
+
+app.mount('#app');
+
+app.component("FormComp",FormComp);
+
+
+
