@@ -13,6 +13,11 @@
         <p><b>Mixins:</b></p>
         <button @click="incCounter">Counter</button>
         <p>Count is: {{ count }}</p>
+        <p><b>Computed property:</b></p>
+        <p>{{fullName}}</p>
+        <p><b>Watcher:</b></p>
+        <input v-model="name">
+        <p  >I'm {{ fullNm }}</p>
 
     </div>
 </template>
@@ -35,7 +40,10 @@ export default{
             getEmitInfoParam:"",
             providePram:"I m provide frpm parent",
             cmpNm:"DynamicChildComp1",
-            count:100
+            count:100,
+            fName:"Abc",
+            lName:"Xyz",
+            fullNm:""
         }
     },
     methods:{
@@ -46,6 +54,16 @@ export default{
     provide(){
         return {
             provideMsg:this.providePram,
+        }
+    },
+    computed: {
+        fullName(){
+            return this.fName+this.lName;
+        }
+    },
+    watch: {
+        name (){
+            this.fullNm=this.name+this.lName;
         }
     }
     
