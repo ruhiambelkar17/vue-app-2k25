@@ -61,6 +61,9 @@
     <p>{{ $store.state.count }} and {{ $store.getters.sqCount }}</p>
     <button @click="$store.commit('incCount')">mutation</button>
     <button @click="$store.dispatch('getApiInfo')">dispatch</button>
+    <p><b>Pinia:</b></p>
+    <p>{{ pStore.piniaCount }}</p>
+    <button @click="pStore.incPiniaCount()">pinia action</button>
   </div>
 </template>
 
@@ -70,6 +73,7 @@ import DynamicChildComp from "./DynamicChildComp.vue";
 import { defineAsyncComponent } from "vue";
 import counter from "../mixins/counter";
 import axios from "axios";
+import {piniaStore } from "../piniaStore/index"
 
 export default {
   components: {
@@ -91,7 +95,8 @@ export default {
       fName: "Abc",
       lName: "Xyz",
       fullNm: "",
-      apiData:[]
+      apiData:[],
+      pStore:piniaStore
     };
   },
   methods: {
