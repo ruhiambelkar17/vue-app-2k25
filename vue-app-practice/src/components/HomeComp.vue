@@ -57,7 +57,10 @@
     <button @click="postApiData"> Post Api Data</button>
     <button @click="updateApiData(14)"> Update Api Data</button>
     <button @click="deleteApiData(1)"> Delete Api Data</button>
-
+    <p><b>Vuex:</b></p>
+    <p>{{ $store.state.count }} and {{ $store.getters.sqCount }}</p>
+    <button @click="$store.commit('incCount')">mutation</button>
+    <button @click="$store.dispatch('getApiInfo')">dispatch</button>
   </div>
 </template>
 
